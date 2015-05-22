@@ -1,0 +1,24 @@
+h1	{
+	font-family: 'Lobster', cursive;	
+	//font-family:Georgia;
+	color:orange;
+	font-size:60px;
+	text-shadow: 2px 2px #000;
+	line-height:50px;
+	}
+
+#date	{
+	line-height:30px;
+	color:black;
+	font-size:45px;
+	font-weight:bold;
+	font-family:'Lobster', cursive;
+	}
+
+img	{
+	width:100%;
+	}
+
+p	{
+	font-size:2em;
+	}

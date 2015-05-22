@@ -1,0 +1,70 @@
+h1	{
+	font-family: 'Lobster', cursive;	
+	//font-family:Georgia;
+	color:orange;
+	font-size:60px;
+	text-shadow: 2px 2px #000;
+	line-height:50px;
+	}
+
+h2	{
+	//font-family:Garamond;
+	font-family: 'Lobster', cursive;
+	color:orange;
+	text-shadow: 2px 2px #000;
+	line-height:50px;
+	font-size:2.5em;
+	}
+
+h3	{
+	font-size: 2em;
+	line-height: 0;
+	}
+
+.pad	{
+	padding-left: 40px;
+	padding-right: 40px;
+	font-size: 1.5em;
+	}
+
+.text_left	{
+	padding-left: 50px;
+	padding-right: 40px;
+	text-align: left; 
+	font-size: 1.5em;
+	}
+
+#left	{
+	//background: rgba(0,104,139,0.8);
+	//background: rgba(16,78,139,0.8);
+	background: rgba(25,25,112,0.8);
+	//background: rgba(39,64,139,0.8);
+	border:dotted 2px grey;
+	width:49%;
+	float:left;
+	color:white;
+	}
+
+#right	{
+	//background: rgba(0,104,139,0.8);
+	//background: rgba(16,78,139,0.8);
+	background: rgba(25,25,112,0.8);
+	//background: rgba(39,64,139,0.8);
+	border:dotted 2px grey;
+	width:49%;
+	height: 546px;
+	float:right;
+	color:white;
+	}
+
+p	{
+	font-size:2em;
+	}
+
+#smaller{
+	font-size:1.5em;
+	}
+
+a	{
+	color:white;
+	}
