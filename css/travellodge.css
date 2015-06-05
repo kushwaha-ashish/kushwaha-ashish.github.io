@@ -29,7 +29,7 @@ h2	{
 	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
-	height: 52em;
+	height: 38em;
 	width:49%;
 	float:left;
 	color:white;
@@ -41,12 +41,13 @@ h2	{
 	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
-	height: 52em;
+	height: 38em;
 	width:49%;
 	float:right;
 	color:white;
 	margin-bottom: 1em;
 	}
+
 h3	{
 	font-size: 2em;
 	line-height: 0;
