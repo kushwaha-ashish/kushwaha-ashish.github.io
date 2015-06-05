@@ -1,24 +1,35 @@
 h1	{
-	font-family: 'Lobster', cursive;	
-	//font-family:Georgia;
 	color:orange;
-	font-size:60px;
+	font-size:4.5em;
 	text-shadow: 2px 2px #000;
-	line-height:50px;
+	line-height:0.65em;
+	color: white;
 	}
 
-#date	{
-	line-height:30px;
-	color:black;
-	font-size:45px;
-	font-weight:bold;
-	font-family:'Lobster', cursive;
-	}
+#amp	{
+	color:#FA5858;
+	font-size:80px;"
+}
+
 
 img	{
 	width:100%;
-	}
+}
 
-p	{
-	font-size:2em;
-	}
+
+#start {
+	padding-top: 12.4em;
+	height:25em;
+	background-image: url("../images/homepage_main.JPG");
+	background-size: cover;
+}
+
+#word-on-pic	{
+	padding-right: 10%;
+	float: right;
+	line-height: 1em;
+}
+
+p {
+	font-size: 1.5em;
+}

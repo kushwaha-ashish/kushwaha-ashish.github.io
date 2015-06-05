@@ -1,47 +1,61 @@
 h1	{
-	font-family: 'Lobster', cursive;	
-	//font-family:Georgia;
 	color:orange;
-	font-size:60px;
+	font-size:4em;
 	text-shadow: 2px 2px #000;
-	line-height:50px;
+	line-height:1em;
+	color: white;
 	}
+
+#amp	{
+	color:#FA5858;
+	font-size:1.2em;"
+}
+
+.container	{
+	width: 80%;
+}
 
 h2	{
-	//font-family:Garamond;
-	font-family: 'Lobster', cursive;
-	color:orange;
+	color:white;
 	text-shadow: 2px 2px #000;
-	line-height:50px;
-	font-size:2.5em;
+	line-height:0.4em;
+	font-size:2.8em;
 	}
 
+
 #left	{
-	//background: rgba(0,104,139,0.8);
+	background: rgba(0,104,139,0.8);
 	//background: rgba(16,78,139,0.8);
-	background: rgba(25,25,112,0.8);
+	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
-	height: 860px;
+	height: 52em;
 	width:49%;
 	float:left;
 	color:white;
 	}
 
 #right	{
-	//background: rgba(0,104,139,0.8);
+	background: rgba(0,104,139,0.8);
 	//background: rgba(16,78,139,0.8);
-	background: rgba(25,25,112,0.8);
+	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
+	height: 52em;
 	width:49%;
-	height: 860px;
 	float:right;
 	color:white;
+	margin-bottom: 1em;
+	}
+
+.venue	{
+	//padding-left: 50px;
+	//padding-right: 50px;
+	font-size: 1.2em;
 	}
 
 .pad	{
-	padding-left: 50px;
-	padding-right: 50px;
-	font-size: 1.5em;
+	padding-left: 8%;
+	padding-right: 8%;
+	font-size: 1.2em;
 	}

@@ -13,41 +13,72 @@ body::after	{
 	z-index: -1;
 	}
 
-.container	{
-	margin:auto;
-	width:1000px;
-	font-family:Garamond;
-	}
+
+body	{
+	font-family: 'Varela Round', sans-serif;
+	width:100%;
+	margin: auto;
+}
+
 
 .menu	{
-	width:1000px;
-	height:100px;
+	width:100%;
+	height:5em;
 	position:fixed;
-	background: rgba(0, 0, 0, 0.8);
-	}
+	background:white;
+}
+
+
+#logo	{
+	float:left;
+	padding-left:4%;
+	padding-right: 4%;
+	letter-spacing:0.15em;
+	text-transform: uppercase;
+	padding-top:0.9em;
+}
+
+
+#ticker	{
+	font-size: 1.5em;
+}
+
+
+#tick-date {
+	font-size: 0.8em;
+}
 
 
 #navig	{
-	padding-top:35px;
+	margin-left: 0;
+	width: 65%;
+	float:right;
+	margin-top: 1.7em;
+	}
+
+
+.nav-item	{
+	display:inline;
+	margin-left:2.5%;
+	margin-right:2.5%;
 	}
 
 
 #navig a {
 	text-decoration:none;
-	font-family: 'Lobster', cursive;
-	color:white;
+	font-size:0.85em;
+	text-transform:uppercase;
+	color:black;
+	letter-spacing:0.1px;
 	}	
+
 
 #navig	a:hover {
-	text-decoration:none;
-	color:orange;
-	}	
-
-.nav-item	{
-	display:inline;
-	padding:30px;
+	color:#009999;
 	}
 
+
 #start	{
-	padding-top:90px;
+	padding-top:4em;
+	margin-bottom: -1em;
 	}

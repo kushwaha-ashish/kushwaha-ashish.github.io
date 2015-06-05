@@ -1,6 +1,4 @@
 h1	{
-	font-family: 'Lobster', cursive;	
-	//font-family:Georgia;
 	color:orange;
 	font-size:60px;
 	text-shadow: 2px 2px #000;
@@ -8,8 +6,6 @@ h1	{
 	}
 
 h2	{
-	//font-family:Garamond;
-	font-family: 'Lobster', cursive;
 	color:orange;
 	text-shadow: 2px 2px #000;
 	line-height:50px;
@@ -65,4 +61,12 @@ p	{
 
 a	{
 	color:white;
+	}
+
+#start	{
+	padding-bottom:-10px;
+	}
+
+.title	{
+	clear:both;
 	}
