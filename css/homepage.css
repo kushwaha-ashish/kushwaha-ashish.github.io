@@ -1,3 +1,17 @@
+body::after	{
+	content:"";
+	background-image:url(../images/backgrnd.JPG);
+	background-position:center;
+	background-attachment:fixed;
+	background-size:cover;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position:fixed;
+	z-index: -1;
+	}
+
 h1	{
 	color:orange;
 	font-size:4.5em;
@@ -17,14 +31,14 @@ img	{
 }
 
 
-#start {
-	padding-top: 12.4em;
-	height:25em;
+#banner {
+	height:37.4em;
 	background-image: url("../images/homepage_main.JPG");
 	background-size: cover;
 }
 
 #word-on-pic	{
+	padding-top: 15%;
 	padding-right: 10%;
 	float: right;
 	line-height: 1em;
