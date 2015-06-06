@@ -7,7 +7,7 @@ h1	{
 
 #amp	{
 	color:#FA5858;
-	font-size:1.2em;"
+	font-size:1.2em;
 }
 
 .container	{
@@ -28,11 +28,11 @@ h2	{
 	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
-	height: 52em;
+	height: 55em;
 	width:49%;
 	float:left;
 	color:white;
-	}
+}
 
 #right	{
 	background: rgba(0,104,139,0.8);
@@ -40,21 +40,30 @@ h2	{
 	//background: rgba(25,25,112,0.8);
 	//background: rgba(39,64,139,0.8);
 	border:dotted 2px grey;
-	height: 52em;
+	height: 55em;
 	width:49%;
 	float:right;
 	color:white;
 	margin-bottom: 1em;
-	}
+}
 
 .venue	{
 	//padding-left: 50px;
 	//padding-right: 50px;
 	font-size: 1.2em;
-	}
+}
 
 .pad	{
 	padding-left: 8%;
 	padding-right: 8%;
 	font-size: 1.2em;
-	}
+}
+
+a {
+	font-size: 1.2em;
+	color: white;
+}
+
+a:hover {
+	color: black;
+}
