@@ -1,15 +1,5 @@
 body::after	{
-	content:"";
-	background-image:url(../images/backgrnd.JPG);
-	background-position:center;
-	background-attachment:fixed;
-	background-size:cover;
-	top:0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	position:fixed;
-	z-index: -1;
+	opacity: 1;
 	}
 
 h1	{
