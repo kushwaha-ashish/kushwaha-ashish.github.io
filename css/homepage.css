@@ -14,10 +14,12 @@ body::after	{
 	}
 
 h1	{
-	font-size: 450%;
+	font-size: 75px;
+	//font-size: 450%;
 	//font-size:4.5em;
 	text-shadow: 2px 2px #000;
-	line-height: 65%;
+	line-height: 48px;
+	//line-height: 65%;
 	//line-height:0.65em;
 	color: white;
 	}
@@ -41,5 +43,7 @@ img	{
 }
 
 p {
-	font-size: 1.5em;
+	font-size: 25px;
+	//font-size: 150%;	
+	//font-size: 1.5em;
 }
