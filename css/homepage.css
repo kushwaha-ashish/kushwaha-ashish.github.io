@@ -1,5 +1,16 @@
 body::after	{
-	opacity: 1;
+	/*content:"";
+	background-image:url(../images/backgrnd.JPG);
+	background-position:center;
+	background-attachment:fixed;
+	background-size:cover;*/
+	opacity:1;
+	/*top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position:fixed;
+	z-index: -1;*/
 	}
 
 h1	{
@@ -20,12 +31,6 @@ img	{
 	width:100%;
 }
 
-
-/*#banner {
-	height:37.4em;
-	background-image: url("../images/homepage_main.JPG");
-	background-size: cover;*/
-}
 
 #word-on-pic	{
 	padding-top: 15%;
