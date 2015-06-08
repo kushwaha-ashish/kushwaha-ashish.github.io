@@ -14,10 +14,11 @@ body::after	{
 	}
 
 h1	{
-	color:orange;
-	font-size:4.5em;
+	font-size: 450%;
+	//font-size:4.5em;
 	text-shadow: 2px 2px #000;
-	line-height:0.65em;
+	line-height: 65%;
+	//line-height:0.65em;
 	color: white;
 	}
 
