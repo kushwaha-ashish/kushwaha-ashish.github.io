@@ -21,6 +21,13 @@ h2	{
 	font-size:2.8em;
 }
 
-iframe	{
-	overflow:hidden;
+#registry	{
+	margin-top:3em;
+}
+
+.sub-head	{
+	font-size:2.2em;
+	color:#FA5858;
+	text-shadow:2px 2px black;
+	line-height: 2.5em;
 }
