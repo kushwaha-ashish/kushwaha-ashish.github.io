@@ -14,19 +14,15 @@ body::after	{
 	}
 
 h1	{
-	font-size: 75px;
-	//font-size: 450%;
-	//font-size:4.5em;
+	font-size:4.5em;
 	text-shadow: 2px 2px #000;
-	line-height: 48px;
-	//line-height: 65%;
-	//line-height:0.65em;
+	line-height:0.65em;
 	color: white;
 	}
 
 #amp	{
 	color:#FA5858;
-	font-size:80px;"
+	font-size:80px;
 }
 
 
@@ -36,14 +32,44 @@ img	{
 
 
 #word-on-pic	{
-	padding-top: 15%;
-	padding-right: 10%;
+	margin-top: 32vh;
+	margin-right: 10%;
 	float: right;
 	line-height: 1em;
+	padding-bottom: 15%;
+	z-index: 20;
+
 }
 
 p {
-	font-size: 25px;
-	//font-size: 150%;	
-	//font-size: 1.5em;
+	font-size: 1.5em;
+}
+
+#more-info	{
+	//border-top: 5px solid #888888;
+	box-shadow:0 -2px 10px #888888;
+	background-image: url(../images/feet.JPG);
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-top: 100vh;
+	height: 90vh;
+	clear: both;
+}
+
+
+#word-on-pic-2	{
+	margin-left: 5%;
+	float: left;
+	line-height: 1em;
+	padding-bottom: 15%;
+	z-index: 20;
+}
+
+#intro	{
+	float: right;
+	width: 40%;
+	height: 100%;
+	background: #00688b;
+	z-index-9;
+	color: white;
 }
