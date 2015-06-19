@@ -32,11 +32,23 @@ img	{
 
 
 #word-on-pic	{
-	margin-top: 15%;
+	margin-top: 10%;
 	margin-right: 10%;
 	float: right;
 	line-height: 1em;
-	padding-bottom: 15%;
+	//padding-bottom: 15%;
+	z-index: 20;
+
+}
+
+#scroll-sign	{
+	margin-top: 3%;
+	margin-right: 13%;
+	float: right;
+	clear: right;
+	text-transform: uppercase;
+	line-height: 1em;
+	padding-bottom: 2%;
 	z-index: 20;
 
 }
