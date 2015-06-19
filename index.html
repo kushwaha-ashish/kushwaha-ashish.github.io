@@ -8,6 +8,25 @@
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
     <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script>
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 2000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+	</script>
+
 </head>
 <body>
 	<center>
@@ -30,12 +49,13 @@
 		<h1>Sara <br><span id="amp">&</span> <br>Ashish</h1>
 		<p>October 3rd, 2015</p>
 	</div>
-
+	
+	<a href="#more-info">
 	<div id="scroll-sign">
 		<p>Our Story</p>
 		<img src="images/down-scroll.png" style="width:50px;">
-		<!--<p><span style="size:2em">▼</span></p>-->
 	</div>
+	</a>
 
 	<div id="more-info">
 		<div id="more-info-pic">
