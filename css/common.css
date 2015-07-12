@@ -16,7 +16,6 @@ body::after	{
 
 body	{
 	font-family: 'Varela Round', sans-serif;
-	//width:100%;
 	margin: auto;
 }
 
@@ -26,6 +25,7 @@ body	{
 	height:5em;
 	position:fixed;
 	background:white;
+	z-index: 10;
 }
 
 

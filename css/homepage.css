@@ -36,15 +36,11 @@ img	{
 	width:100%;
 }
 
-
-#word-on-pic	{
-	margin-top: 25vh;
-	margin-right: 10%;
-	float: right;
-	line-height: 1em;
-	z-index: 20;
-
-}
+/*#intro img:last-of-type {
+	width:90%;
+	transform: translateX(-20%) rotate(25deg);
+	z-index: -5;
+}*/
 
 #scroll-sign	{
 	margin-right: 11%;
@@ -55,6 +51,15 @@ img	{
 	padding-bottom: 10%;
 	z-index: 20;
 }
+
+
+#word-on-pic	{
+	margin-top: 25vh;
+	margin-right: 10%;
+	float: right;
+	z-index: 20;
+}
+
 
 p {
 	font-size: 1.5em;
@@ -76,16 +81,14 @@ a p {
 	height: 90vh;
 	width: 60%;
 	float: left;
-	background-image: url(../images/feet.JPG);
-	background-size: cover;
-	background-repeat: no-repeat;
+	background: rgba(256,256,256,0.7);
 }
 
+
 #word-on-pic-2	{
+	text-align: justify;
 	margin-left: 5%;
-	float: left;
-	line-height: 1em;
-	padding-bottom: 15%;
+	margin-right: 5%;
 	z-index: 20;
 }
 
