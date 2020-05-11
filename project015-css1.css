@@ -1,0 +1,320 @@
+body {
+  font-family: 'Ubuntu', Trebuchet MS;
+  text-align: center;
+  margin: -5px;
+}
+
+#navbar {
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  //background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  background-color: #e0ebe8;
+  margin: 5px;
+}
+
+ul {
+  width: 40%;
+  color: #008080;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  //background: yellow;
+}
+
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0ebe8;
+  //background-color: rgba(0, 0, 255, 0.2);
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: -10px;
+}
+
+p {
+  color: green;
+}
+
+h2 {
+  color: #008080;
+  padding-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#proj-sec {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.project-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.project-image {
+  width: 22vw;
+  height: 12vw;
+  background-color: #008080;
+  //background-color: #39CCCC;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  padding: 10px;
+  color: #008080;
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+#profile-links {
+  padding-top: 100px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #C8F7C5;
+}
+
+#contact {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20vh;
+}
+
+.contact-link {
+  width: 100px;
+  height: 100px;
+}
+
+.contact-div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  background-color: #22313F;
+  height: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  margin-top: -10px;
+}
+/*
+#navbar-header {
+  position: fixed;
+  background-color: #ffffff;
+  width: 25%;
+  padding-left: 20px;
+  margin-top: -10px; 
+}
+
+
+#main-doc {
+  width: 70%;
+  padding-left: 30%;
+}
+
+#menu-bar {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link {
+  display: flex;
+  padding: 10px 0 10px 10px;
+  align-items: center;
+  border-top: 1px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+code {
+  line-height: 150%;
+  display: block;
+  text-align: left;
+  white-space: pre;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  background-color: #f7f7f7;  
+}
+
+p {
+  line-height: 150%;
+}
+
+li {
+  line-height: 150%;
+}
+
+#header {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  min-height: 75px;
+  justify-content: space-around;
+  align-items: center;
+  margin: -10px 0;
+  background-color: #eee;
+  z-index: 10;
+}
+
+#header-img {
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  padding: 0 20px;
+}
+
+
+
+
+
+
+#main {
+  padding-top: 100px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#email {
+  height: 5vh;
+  width: 30%;
+}
+
+#submit {
+  background-color: #f1c40f;
+  border-radius: 3px;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  margin: 20px;
+  color: black;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.pitch {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  padding: 30px;
+}
+
+.fa-3x {
+  color: orange;
+  vertical-align: middle;
+}
+
+.pitch div h2,p {
+  margin: 0px;
+}
+
+.pitch div {
+  text-align: left;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#prices {
+  padding: 50px 0;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 300px;
+  justify-content: space-around;
+}
+
+.price-cont {
+  width: 30%;
+  min-width: 90px;
+  height: 100%;
+  margin: 10px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-strip {
+  font-weight: bold;
+  height: 20%;
+  background-color: LightGray;
+  text-transform: uppercase;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-desc p {
+  line-height: 150%;
+}
+
+footer {
+  background-color: LightGray;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: -5px;
+}
+
+#foot-menu {
+  width: 25%;
+  padding: 15px 10px 5px 0;
+  text-align: center;
+}
+
+#foot-note {
+  width: 30%;
+  padding: 5px 0 15px 0;
+  text-align: center;
+}
+*/

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Survey Form</title>
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="project012-css1.css">
+</head>
+<body>
+	<!--User Story #1: I can see a title with id="title" in H1 sized text.-->
+	<h1 id="title">Survey Form</h1>
+	<main>
+		<!--User Story #2: I can see a short explanation with id="description" in P sized text.-->
+		<p id="description">Let us know how we can improve freeCodeCamp</p>
+
+		<!--User Story #3: I can see a form with id="survey-form".-->
+		<form id="survey-form">
+
+			<!--User Story #10: For the name, email, and number input fields inside the form I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label".-->
+
+			<!--User Story #11: For the name, email, and number input fields, I can see placeholder text that gives me a description or instructions for each field.-->
+
+			<!--User Story #4: Inside the form element, I am required to enter my name in a field with id="name".-->
+			<fieldset>
+				<div class="lside">
+					<label for="user-name" id="name-label">* Name:</label>
+				</div>
+				<div class="rside">
+					<input type="text" name="user-name" id="name" placeholder="Enter you name" required>
+				</div>
+			</fieldset>
+			
+			<!--User Story #5: Inside the form element, I am required to enter an email in a field with id="email".-->
+
+			<!--User Story #6: If I enter an email that is not formatted correctly, I will see an HTML5 validation error.-->
+			<fieldset>
+				<div class="lside">
+					<label for="user-email" id="email-label">* Email:</label>
+				</div>
+				<div class="rside">
+					<input type="email" name="user-email" id="email" placeholder="Enter your Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+				</div>
+			</fieldset>
+
+			<!--User Story #7: Inside the form, I can enter a number in a field with id="number".-->
+
+			<!--User Story #8: If I enter non-numbers in the number input, I will see an HTML5 validation error.-->
+
+			<!--User Story #9: If I enter numbers outside the range of the number input, which are defined by the min and max attributes, I will see an HTML5 validation error.-->
+
+			<fieldset>
+				<div class="lside">
+					<label for="user-age" id="number-label">* Age:</label>
+				</div>
+				<div class="rside">
+					<input type="number" name="user-age" id="number" placeholder="Age" min="10" max="99" required pattern="\d+">
+				</div>
+			</fieldset>
+
+			<!--User Story #12: Inside the form element, I can select an option from a dropdown that has a corresponding id="dropdown".-->
+			<fieldset>
+				<div class="lside">
+					<label for="user-role">Which option best describes your current role?</label>
+				</div>
+				<div class="rside">
+					<select id="dropdown">
+						<option>Student</option>
+						<option>Full Time Job</option>
+						<option>Full Time Learner</option>
+						<option>Prefer not to say</option>
+						<option>Other</option>
+					</select>
+				</div>
+			</fieldset>
+
+			<!--User Story #13: Inside the form element, I can select a field from one or more groups of radio buttons. Each group should be grouped using the name attribute.-->
+			<fieldset>
+				<div class="lside">
+					<label for="reco">How likely is that you would recommend freeCodeCamp to a friend?</label>
+				</div>
+				<div class="rside">
+					<input type="radio" name="reco" value="Definitely">Definitely<br>
+					<input type="radio" name="reco"value="Maybe">Maybe<br>
+					<input type="radio" name="reco" value="Not sure">Not sure<br>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<div class="lside">
+					<label for="user-role">What do you like most in FCC:</label>
+				</div>
+				<div class="rside">
+					<select id="dropdown">
+						<option>Challenges</option>
+						<option>Projects</option>
+						<option>Community</option>
+						<option>Open Source</option>
+					</select>
+				</div>
+			</fieldset>
+			<!--User Story #14: Inside the form element, I can select several fields from a series of checkboxes, each of which must have a value attribute.-->
+			<fieldset>
+				<div class="lside">
+					<label for="user-role">Things that should be improved in the future (Check all that apply):
+					</label>
+				</div>
+				<div class="rside">
+					<input type="checkbox" name="user-role" value="front-end-projects">Front-end Projects<br>
+					
+					<input type="checkbox" name="user-role" value="bront-end Projects">Back-end Projects<br>
+					
+					<input type="checkbox" name="user-role" value="data-visulization">Data Visualization<br>
+					
+					<input type="checkbox" name="user-role" value="challenges">Challenges<br>
+
+					<input type="checkbox" name="user-role" value="open-source-community">Open Source Community<br>
+
+					<input type="checkbox" name="user-role" value="gitter-help-rooms">Gitter help rooms<br>
+
+					<input type="checkbox" name="user-role" value="videos">Videos<br>
+
+					<input type="checkbox" name="user-role" value="city-meetups">City Meetups<br>
+
+					<input type="checkbox" name="user-role" value="wiki">Wiki<br>
+
+					<input type="checkbox" name="user-role" value="forum">Forum<br>
+
+					<input type="checkbox" name="user-role" value="additional-courses">Additional Courses<br>
+				</div>
+			</fieldset>
+			<!--User Story #15: Inside the form element, I am presented with a textarea at the end for additional comments.-->
+			<fieldset>
+				<div class="lside">
+					<label for="comments">Any Comments or Suggestions?</label>
+				</div>
+				<div class="rside">
+					<textarea rows="3">Enter your comment here...</textarea>
+				</div>
+			</fieldset>
+			<!--User Story #16: Inside the form element, I am presented with a button with id="submit" to submit all my inputs.-->
+			<button type="submit" id="submit">Submit</button>
+
+
+
+
+
+
+		</form>
+	</main>
+</body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>

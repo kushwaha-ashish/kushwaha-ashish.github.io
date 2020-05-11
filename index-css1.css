@@ -1,0 +1,144 @@
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Ubuntu', Trebuchet MS;
+  text-align: center;
+  margin: -5px;
+}
+
+#navbar {
+  width: 100%;
+  position: fixed;
+  height: 50px;
+  //background-color: rgba(255, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  background-color: #e0ebe8;
+  margin: 5px;
+}
+
+ul {
+  width: 40%;
+  color: #008080;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  //background: yellow;
+}
+
+#welcome-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0ebe8;
+  //background-color: rgba(0, 0, 255, 0.2);
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: -10px;
+}
+
+p {
+  color: green;
+}
+
+h2 {
+  color: #008080;
+  padding-top: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#proj-sec {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.project-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.project-image {
+  width: 22vw;
+  height: 12vw;
+  background-color: #008080;
+  //background-color: #39CCCC;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.project-title {
+  padding: 10px;
+  color: #008080;
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+#profile-links {
+  padding-top: 100px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #C8F7C5;
+}
+
+#contact {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20vh;
+}
+
+.contact-link {
+  width: 100px;
+  height: 100px;
+}
+
+.contact-div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  background-color: #22313F;
+  height: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: white;
+  margin-top: -10px;
+}

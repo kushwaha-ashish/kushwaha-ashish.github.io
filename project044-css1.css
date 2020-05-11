@@ -1,0 +1,42 @@
+body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+#education_data_map {
+    width: 1000px;
+    height: 125vh;
+}
+
+.states {
+    fill: none;
+    stroke: #fff;
+    stroke-linejoin: round;
+  }
+
+.cell:hover {
+	stroke: black;
+	stroke-width: 2px;
+}
+
+#legend rect {
+	stroke: black;
+}
+
+.tooltip {
+    visibility: visible;
+    position: absolute;
+    width: 120px;					
+    height: auto;					
+    padding: 10px;				
+    font: 14px sans-serif;		
+	background: black;	
+	color: white;
+    border: 0px;
+    border-radius: 8px;
+	pointer-events: none;
+	text-align: center;
+}

@@ -1,0 +1,878 @@
+<html>
+	<head>
+		<title>Flatten The Curve</title>
+	</head>
+	<style type="text/css">
+		body {
+			overflow: hidden;
+			background-color: #566573;
+			//background-color: #45B39D; 
+			font-family: arial;
+		}
+
+		#container {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
+
+		#mainPanel {
+			display: flex;
+			flex-direction: column;
+			margin-right: 0.5vw;
+			height: 97vh;
+			width: 75%;
+			//background-color: yellow;
+		}
+
+		#controlPanel {
+			height: 97vh;
+			width: 25%;
+			display: flex;
+			flex-direction: column;
+			align-content: stretch;
+			//background-color: red;
+		}
+
+		#mainPanelDiv1 {
+			display: grid;
+			grid-template-columns: 50% 50%;
+			height: 48vh;
+			justify-items: center;
+		}
+
+		#mainPanelDiv2 {
+			display: flex;
+			justify-content: space-around;
+			height: 49vh;
+			//background-color: white;
+		}
+
+		#svg1 {
+			border: 2px solid red;
+		}
+
+		#svg2 {
+			border: 2px solid white;
+		}
+
+		.displayBox {
+			height: 43vh;
+			width: 90%;
+			background-color: #2C3E50;
+		}
+
+		.displayLabel {
+			margin: 0;
+			text-align: center;
+			font-weight: bold;
+		}
+
+		circle {
+			fill: #F5B041;	
+		}
+
+		#circle1 {
+			fill: red;
+		}
+
+		#circle2 {
+			fill: #5DADE2;
+		}
+
+		#graphSVG {
+			width: 90%;
+			height: 49vh;
+			float: right;
+		}
+
+		#graphDiv {
+			width: 70%;
+			//background-color: red;
+		}
+
+		#legendDiv {
+			width: 30%;
+		}
+
+		#legend {
+			width: 100%;
+			height: 49vh;
+			//background-color: white;
+		}
+
+		button {
+			height: 4vh;
+			width: 5vw;
+			font-size: 1vw;
+		}
+
+		#popSlider, #recSlider, #qPopSlider {
+			width: 80%;
+			margin-top: 1vh;
+			margin-bottom: 1vh;
+		}
+
+		.tickLabels {
+			padding-left: 3vw;
+			padding-right: 3vw;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			font-size: 2vw;
+			color: white;
+			margin: -10px;
+		}
+
+		#intro {
+			//font-size: 1.5vw;
+			background-color: #2C3E50;
+			padding: 2vh 1vw 3vh 1vw;
+			//height: 18vh;
+		}
+
+		#firstDash {
+			height: 6vh;
+			padding: 2vh 1vw 2vh 1vw;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+
+		}
+
+		.dashbox {
+			height: 15vh;
+			font-size: 1.1vw;
+			margin: 1vh 0 1vh 0;
+			padding: 0 0.5vw 0 0.5vw;
+			border: 2px solid white;
+			background-color: #2C3E50;
+		}
+
+		.ticks {
+			margin: 1vw;
+		}
+
+
+		.dashbox p {
+			color: white;
+			font-size: 1.2vw;
+			margin: 1.5vh 0 1.5vh 0;
+		}
+
+		#intro p {
+			color: white;
+			font-size: 1.2vw;
+			//margin: 1vh 0 1vh 0;
+		}
+
+		#legend rect {
+			stroke: white;
+			stroke-width: 2px;
+			fill: #2C3E50;
+		}
+
+	</style>
+	
+	<body>
+		<div id="container">
+			<div id="mainPanel">
+				<div id="mainPanelDiv1">
+					<svg class="displayBox" id="svg1"></svg>
+					<svg class="displayBox" id="svg2"></svg>
+					<div class="displayLabel" style="color: red;">Population with NO social distancing</div>
+					<div class="displayLabel" style="color: white;">Population WITH social distancing</div>
+				</div>
+
+				<div id="mainPanelDiv2">
+					<div id="graphDiv">
+						<svg id="graphSVG">
+							<rect id="bkgRect"></rect>
+							<g id="xAxis"></g>
+							<g id="yAxis"></g>
+							<path id="infectPlot"></path>
+							<path id="infectPlotQ"></path>
+						</svg>
+					</div>
+					<div id="legendDiv">
+						<svg id="legend">
+							<rect id="legendRect"></rect>
+						</svg>
+					</div>
+				</div>
+			</div>
+
+			<div id="controlPanel">
+				<center>
+					<div id="intro">
+						<p style="font-size: 1.3vw;">"FLATTENING THE CURVE"</p>
+						<p>Simulating the dependence of spread of a contagious pandemic on various factors</p>
+						<p>ASHISH KUSHWAHA</p>
+					</div>
+
+					<div class="dashbox" id="firstDash">
+						<button id="startButton" onclick="simulationStart()">Start</button>
+						<button id="stopButton" disabled = true onclick="simulationStop()">Stop</button>
+						<button id="refreshButton" onclick="simulationRefresh()">Refresh</button>
+					</div>
+
+					<div class="dashbox">
+						<p>Starting population: <span id="popCount"></span></p>
+						<div class="tickLabels">
+							<p class="ticks">10</p>
+							<p class="ticks">100</p>
+							<p class="ticks">200</p>
+							<p class="ticks">300</p>
+							<p class="ticks">400</p>
+							<p class="ticks">500</p>
+						</div>
+
+						<input id="popSlider"
+								type = 'range'
+								min = '10'
+								max = '500'
+								step = '10'
+								value = '100'
+								list="stepList1"
+								onchange="simulationRefresh();">
+						<datalist id="stepList1">
+							<option>10</option>
+							<option>100</option>
+							<option>200</option>
+							<option>300</option>
+							<option>400</option>
+							<option>500</option>
+						</datalist>
+					</div>
+
+					<div class="dashbox">
+						<p>Average recovery period: <span id="recCount"></span> days</p>
+						<div class="tickLabels">
+							<p class="ticks">10</p>
+							<p class="ticks">20</p>
+							<p class="ticks">30</p>
+							<p class="ticks">40</p>
+							<p class="ticks">50</p>
+						</div>
+
+						<input id="recSlider"
+								type = 'range'
+								min = '10'
+								max = '50'
+								step="5"
+								value = '20'
+								list="stepList2"
+								onchange="slider2Reset();">
+						<datalist id = 'stepList2'>
+							<option>10</option>
+							<option>20</option>
+							<option>30</option>
+							<option>40</option>
+							<option>50</option>
+						</datalist>
+					</div>
+
+					<div class="dashbox">
+						<p>Quarantine population: <span id="qFraction"></span>%</p>
+						<div class="tickLabels">
+							<p class="ticks">0</p>
+							<p class="ticks">20</p>
+							<p class="ticks">40</p>
+							<p class="ticks">60</p>
+							<p class="ticks">80</p>
+							<p class="ticks">100</p>
+						</div>
+
+						<input id="qPopSlider"
+								type = 'range'
+								min = '0.0'
+								max = '1.0'
+								step = '0.05'
+								value = '0.8'
+								list="stepList3"
+								onchange="slider2Reset();">
+						<datalist id = 'stepList3'>
+							<option>0</option>
+							<option>0.2</option>
+							<option>0.4</option>
+							<option>0.6</option>
+							<option>0.8</option>
+							<option>1.0</option>
+						</datalist>
+					</div>
+				</center>
+			</div>
+		</div>
+	</body>
+
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script type="text/javascript">
+		//==== ALL THE INITIAL FIXED VARIABLE ===//
+		var startButton = document.getElementById('startButton');
+		var stopButton = document.getElementById('stopButton');
+		var dt = 25;
+		var r = 5;
+
+		//var frameWidth = 500;
+		//console.log(frameWidth);
+		//var frameHeight = 400;
+		var frameWidth = 10*Math.floor(document.getElementById('svg1').clientWidth/10);
+		var frameHeight = 10*Math.floor(document.getElementById('svg1').clientHeight/10);
+
+		var svgWidth = document.getElementById('svg1').clientWidth;
+		var svgHeight = document.getElementById('svg1').clientHeight;
+
+		var cases = 2;
+		var casesQ = 2;
+
+		//==== changing variables will be inside the reset function
+		//variable for overall days count
+		var totalDays;
+		var dayFactor;//token for totaldays increment - there are two functions to increase this, so controller
+
+		var totalPopulation = 0;
+		var recoveryDays = 0;
+		var qFraction = 0.0;
+
+		var infectPoints = [];
+		var infectQPoints = [];
+
+		var n = 0;
+		var isolatedPopulation = 0;
+
+		var svg1 = d3.select('#svg1');
+		var svg2 = d3.select('#svg2');
+
+		var svg1Text;
+		var svg2Text;
+		var graphSVG = d3.select('#graphSVG');
+		var legend = d3.select('#legend');
+
+		const axesPaddingX = frameWidth/30;
+		const axesPaddingY = frameHeight/30;
+
+		var xScale;
+		var yScale;
+
+		var xAxisPlot;
+		var yAxisPlot;
+
+		var legendCircles = [['vulnerable', '#F5B041'],
+							['infected', 'red'],
+							['recovered', '#5DADE2']];
+		var legendLines = [['Non-Quarant', 'red'],
+							['Quarantine', 'white']];
+
+		var legendTexts = ['vulnerable', 'infected', 'recovered',
+							'Non-Quarant', 'Quarantine'];
+
+		var coOrds = [];
+		var pathString = '';
+		var coOrdsQ = [];
+		var pathStringQ = '';
+
+		var plotLine;
+		var plotLineQ;
+
+		var animationSwitch;
+		var animationSwitchQ;
+
+		graphSVG.append('text')
+				.attr('x', 2*axesPaddingX)
+				.attr('y', 0.6*frameHeight)
+				.attr('font-size', 15)
+				.attr('font-family', 'arial')
+				.attr('fill', 'white')
+				.text('CASES')
+				.attr('transform', 'rotate(-90 ' + 2*axesPaddingX + ',' + 0.6*frameHeight + ')');
+
+		graphSVG.append('text')
+				.attr('x', 0.7*frameWidth)
+				.attr('y', 1.15*frameHeight)
+				.attr('font-size', 15)
+				.attr('font-family', 'arial')
+				.attr('fill', 'white')
+				.text('DAYS');
+
+
+		//=== ALL VARS DONE ======
+		// ORDER - HELPING FUNC, MAIN FUNC, BUTTON/SLIDER FUNC
+
+		// ***************=== HELPING FUNCTIONS ====================
+		//===================randomNumGenerator===================
+		function randomNumGenerator(maxLim, draws) {
+			drawMatrix = [];
+			drawMatrix[draws - 1] = 0;
+			for (i = 0; i < draws; i++) {
+				var randNum = Math.round(maxLim*Math.random());
+				if (drawMatrix.includes(randNum)) {
+					i--;
+				}
+				else {
+					drawMatrix[i] = randNum;
+				}
+			}
+
+			return(drawMatrix);
+		};
+		//==================randomNumGenerator====================
+
+		//======= CALCULATE DISTANCE BETWEEN TWO BALLS =========
+		function distCalculate(body1, body2) {
+			xDiff = (body1.x - body2.x)**2;
+			yDiff = (body1.y - body2.y)**2;
+
+			bodyDist = Math.sqrt(xDiff + yDiff);
+
+			return(bodyDist);
+		}
+		//======= CALCULATE DISTANCE BETWEEN TWO BALLS - END =========
+
+		//======== FUNCTION RETURN A MATRIX WITH EACH PAIR OF BALLS ===
+		function distMatrixPrep(pointMatrix) {
+			var distMatrixTemp = [];
+			var distMatrixLength = totalPopulation*(totalPopulation - 1)/2;
+			distMatrixTemp[distMatrixLength - 1] = [];
+
+			var distMatrixCount = 0;
+			for (i = 0; i < (totalPopulation - 1); i++) {
+				for (j = i + 1; j < totalPopulation; j++) {
+					distMatrixTemp[distMatrixCount] = [i, j, distCalculate(pointMatrix[i], pointMatrix[j])];
+					distMatrixCount++;
+				}
+			}
+			return (distMatrixTemp);
+		}
+		//======== RETURN A MATRIX WITH EACH PAIR OF BALLS - END ===
+
+		//======== THE ONE COMING IN CONTACT WITH INFECT GO RED === 
+		function colorCode(pointsMatrix) {
+			var distMatrixTemp = distMatrixPrep(pointsMatrix);
+			var collisionBallPairs = distMatrixTemp.filter((d) => d[2] <= 2*r)
+
+			if (collisionBallPairs.length > 0) {
+				//console.log(collisionBallPairs);
+				collisionBallPairs.forEach(function(pair) {
+					//console.log(pair);
+					if ((pointsMatrix[pair[0]].health) + (pointsMatrix[pair[1]].health) <= 1) {
+
+						pointsMatrix[pair[0]].health = 0;
+						pointsMatrix[pair[1]].health = 0;
+					}
+				});
+			};
+			//return(pointsMatrix);
+		};
+		//======== THE ONE COMING IN CONTACT WITH INFECT GO RED === 
+
+		//======= REAL TIME RESCALING OF X-AXIS
+		function rescaleAxis(coOrds) {
+			var pathStringTemp = 'M' + xScale(coOrds[0][0]) + ',' + yScale(coOrds[0][1]);
+
+			for (i = 1; i < coOrds.length; i++) {
+				pathStringTemp = pathStringTemp + ' L' + xScale(coOrds[i][0]) + ',' + yScale(coOrds[i][1]);
+			};
+
+			return(pathStringTemp);
+		};
+		//***************=== HELPING FUNCTIONS - END ====================
+
+		//******************* MAIN FUNCTIONS *****************************
+		//======= MAIN FUNCTION: SIMULATION RESET/SLIDER RESET CALL TOO ====//
+		function simulationReset() {
+			startButton.disabled = false;
+			stopButton.disabled = true;
+
+			var frameWidth = 10*Math.floor(document.getElementById('svg1').clientWidth/10);
+			var frameHeight = 10*Math.floor(document.getElementById('svg1').clientHeight/10);
+
+			var svgWidth = document.getElementById('svg1').clientWidth;
+			var svgHeight = document.getElementById('svg1').clientHeight;
+
+			totalDays = 0;
+			dayFactor = 0;
+			d3.select('#popCount').text(document.getElementById('popSlider').value);
+			d3.select('#recCount').text(document.getElementById('recSlider').value);
+			d3.select('#qFraction').text(document.getElementById('qPopSlider').value*100);
+
+			totalPopulation = document.getElementById('popSlider').value;
+			recoveryDays = document.getElementById('recSlider').value;
+			qFraction = document.getElementById('qPopSlider').value;
+
+			infectPoints = [];
+			infectPoints[totalPopulation - 1] = {};		
+
+			for (i = 0; i < totalPopulation; i++) {
+				infectPoints[i] = {};
+
+				infectPoints[i].x = Math.random()*(svgWidth - 2*r) + r;
+				infectPoints[i].y = Math.random()*(svgHeight - 2*r) + r;
+				
+				infectPoints[i].vx = 0.25*(Math.random() - 0.5);
+				infectPoints[i].vy = 0.25*(Math.random() - 0.5);
+				
+				infectPoints[i].health = 1;//0 = infected, 1 = vulnerable, 2 = recovered
+				infectPoints[i].days = 0;
+			};
+
+			n = Math.round((totalPopulation - 2)*Math.random());
+			infectPoints[n].health = 0;
+			infectPoints[n+1].health = 0;
+			infectPoints[n].days = 1;
+			infectPoints[n+1].days = 1;
+
+			infectQPoints = infectPoints.map((e1) => JSON.parse(JSON.stringify(e1)));
+			isolatedPopulation = Math.round(totalPopulation*qFraction);
+
+			for (i = 0; i < isolatedPopulation; i++) {
+				if ((i != n)|(i != (n+1))) {
+					infectQPoints[i].vx = 0;
+					infectQPoints[i].vy = 0;
+				};
+			};
+
+			svg1.selectAll('circle')
+				.data(infectPoints)
+				.enter()
+				.append('circle')
+				.attr('r', r)
+				.attr('cx', (d) => d.x)
+				.attr('cy', (d) => d.y)
+				.style('fill', (d) => ((d.health == 0) ? 'red' : ''));
+
+			svg1.append('rect')
+				.attr('x', 0.5*axesPaddingX)
+				.attr('y', 0.5*axesPaddingX)
+				.attr('height', 1.5*axesPaddingX)
+				.attr('width', 5*axesPaddingX)
+				.attr('fill', 'rgba(255, 0, 0, 0.5)');
+
+			svg1Text = svg1.append('text')
+				.attr('x', 0.8*axesPaddingX)
+				.attr('y', 1.6*axesPaddingX)
+				.attr('fill', 'white')
+				.text('Day 0');
+
+			svg2.selectAll('circle')
+				.data(infectQPoints)
+				.enter()
+				.append('circle')
+				.attr('r', r)
+				.attr('cx', (d) => d.x)
+				.attr('cy', (d) => d.y)
+				.style('fill', (d) => ((d.health == 0) ? 'red' : ''));
+
+			svg2.append('rect')
+				.attr('x', 0.5*axesPaddingX)
+				.attr('y', 0.5*axesPaddingX)
+				.attr('height', 1.5*axesPaddingX)
+				.attr('width', 5*axesPaddingX)
+				.attr('fill', 'rgba(255, 0, 0, 0.5)');
+
+			svg2Text = svg2.append('text')
+				.attr('x', 0.8*axesPaddingX)
+				.attr('y', 1.6*axesPaddingX)
+				.attr('fill', 'white')
+				.text('Day 0');
+
+			xScale = d3.scaleLinear()
+					.domain([0, 10])
+					.range([5*axesPaddingX, 1.2*frameWidth + 5*axesPaddingX]);
+
+			yScale = d3.scaleLinear()
+					.domain([0, totalPopulation])
+					.range([frameHeight, 2*axesPaddingY]);
+
+			xAxisPlot = d3.axisBottom(xScale);
+			yAxisPlot = d3.axisLeft(yScale);
+
+			graphSVG.select('#xAxis')
+					.attr('transform', 'translate(0, ' + frameHeight + ')')
+					.call(xAxisPlot)
+					.attr('font-size', 15)
+					.attr('color', 'white');
+
+			graphSVG.select('#yAxis')
+					.attr('transform', 'translate(' + 5*axesPaddingX + ',  0)')
+					.call(yAxisPlot)
+					.attr('font-size', 15)
+					.attr('color', 'white');
+
+			graphSVG.select('#bkgRect')
+				.attr('x', 5*axesPaddingX)
+				.attr('y', axesPaddingX)
+				.attr('height', frameHeight - axesPaddingX)
+				.attr('width', 1.2*frameWidth)
+				.attr('stroke', 'white')
+				.attr('fill', '#2C3E50');
+
+			legend.select('rect')
+					.attr('x', axesPaddingX)
+					.attr('y', 2*axesPaddingY)
+					.attr('height', 0.6*frameHeight)
+					.attr('width', 0.4*frameWidth);
+
+			legend.selectAll('circle')
+					.data(legendCircles)
+					.enter()
+					.append('circle')
+					.attr('id', (d, i) => ('circle' + i))
+					.attr('cx', 3*axesPaddingX)
+					.attr('cy', (d, i) => 3*axesPaddingY*(i + 1.5))
+					.attr('r', r)
+					.attr('fill', (d) => d[1]);
+
+			legend.selectAll('line')
+					.data(legendLines)
+					.enter()
+					.append('line')
+					.attr('x1', 2*axesPaddingX)
+					.attr('y1', (d, i) => 3*axesPaddingY*(i + 4.5))
+					.attr('x2', 4*axesPaddingX)
+					.attr('y2', (d, i) => 3*axesPaddingY*(i + 4.5))
+					.attr('stroke-width', 2)
+					.attr('stroke', (d) => d[1]);
+
+			legend.selectAll('text')
+					.data(legendTexts)
+					.enter()
+					.append('text')
+					.attr('x', 5*axesPaddingX)
+					.attr('y', (d, i) => 3*axesPaddingY*(i + 1.5) + 5)
+					.attr('fill', 'white')
+					.attr('font-family', 'arial')
+					.attr('font-size', axesPaddingX)
+					.text((d) => d);
+
+			legend.append('text')
+					.attr('x', axesPaddingX)
+					.attr('y', 0.8*frameHeight)
+					.attr('font-size', 15)
+					.attr('font-family', 'arial')
+					.attr('fill', 'white')
+					.text('CLICK ON START BUTTON');
+
+			legend.append('text')
+					.attr('x', axesPaddingX)
+					.attr('y', 0.9*frameHeight)
+					.attr('font-size', 15)
+					.attr('font-family', 'arial')
+					.attr('fill', 'white')
+					.text('TO START SIMULATION');
+
+			//pathString = 'M' + xScale(10) + ',' + yScale(20) + 'L' + xScale(20) + ',' + yScale(50);
+			//pathStringQ = 'M' + xScale(10) + ',' + yScale(20) + 'L' + xScale(20) + ',' + yScale(30);
+			coOrds = [[0, 2]];
+			coOrdsQ = [[0, 2]];
+			pathString = rescaleAxis(coOrds);
+			pathStringQ = rescaleAxis(coOrdsQ);
+
+			plotLine = graphSVG.select('#infectPlot')
+						.attr('d', pathString)
+						.attr('stroke', 'red')
+						.attr('stroke-width', 2)
+						.attr('fill', 'none');
+
+			plotLineQ = graphSVG.select('#infectPlotQ')
+						.attr('d', pathStringQ)
+						.attr('stroke', 'white')
+						.attr('stroke-width', 2)
+						.attr('fill', 'none');
+		};
+		//======= MAIN FUNCTION: SIMULATION RESET ENDS ====//
+
+		//******************* MAIN FUNCTIONS *****************************
+		//======= DISPLACEMENT - OF THE NORMAL AND QUARANTINE POPULATION ===============
+		function displacement() {
+			totalDays += 0.1;
+
+			if (infectPoints.filter((d) => (d.health == 0)).length == 0) {
+				dayFactor = 1;
+				clearInterval(animationSwitch);
+			};
+
+			svg1.selectAll('circle')
+				.attr('cx', function(d) {
+					if (((d.x > (svgWidth - r)) & (d.vx > 0)) | 
+						((d.x < r) & (d.vx < 0))) {
+						d.vx = -d.vx;
+					};
+
+					d.x = d.x + d.vx*dt;
+					return(d.x);
+				})
+				.attr('cy', function(d) {
+					if (((d.y > (svgHeight - r)) & (d.vy > 0)) | 
+						((d.y < r) & (d.vy < 0))) {
+						d.vy = -d.vy;
+					};
+
+					d.y = d.y + d.vy*dt;
+					return(d.y);
+				})
+				.attr('health', (d) => {(d.days > recoveryDays) ? (d.health = 2) : d.health; return(d.health)})
+				.attr('days', (d) => (d.health == 0 ? (d.days = d.days + 0.1) : d.days))
+				.style('fill', (d) => (d.health == 0 ? 'red' : (d.health == 2 ? '#5DADE2' : '')));
+
+			colorCode(infectPoints);
+			svg1Text.text('Day ' + Math.round(totalDays));
+
+			//rescaling the axes
+			xScale.domain([0, 10*Math.ceil(totalDays/10)])
+
+			xAxisPlot = d3.axisBottom(xScale);
+
+			graphSVG.select('#xAxis').call(xAxisPlot);
+
+			//xScale.domain([0, Math.ceil(totalDays)])
+			cases = infectPoints.filter((d) => d.health == 0).length
+			
+			if (((totalDays % 1) < 0.001) | ((totalDays % 1) > 0.499)) {
+			//if ((totalDays % 0.5 < 0.001) | (totalDays % 0.5 > 0.499)) {
+				coOrds.push([totalDays, cases]);
+			}
+
+			pathString = rescaleAxis(coOrds);
+			plotLine.attr('d', pathString);
+
+			if (casesQ == 0) {
+				pathStringQ = rescaleAxis(coOrdsQ);
+				plotLineQ.attr('d', pathStringQ);				
+			}
+		};
+
+
+		function displacementQ() {
+			totalDays += dayFactor*0.1;
+
+			if (infectQPoints.filter((d) => (d.health == 0)).length == 0) {
+				clearInterval(animationSwitchQ);
+				stopButton.disabled = true;
+			}
+
+			svg2.selectAll('circle')
+				.attr('cx', function(d) {
+					if (((d.x > (svgWidth - r)) & (d.vx > 0)) | 
+						((d.x < r) & (d.vx < 0))) {
+						d.vx = -d.vx;
+					};
+
+					d.x = d.x + d.vx*dt;
+					return(d.x);
+				})
+				.attr('cy', function(d) {
+					if (((d.y > (svgHeight - r)) & (d.vy > 0)) | 
+						((d.y < r) & (d.vy < 0))) {
+						d.vy = -d.vy;
+					};
+
+					d.y = d.y + d.vy*dt;
+					return(d.y);
+				})
+				.attr('health', (d) => {(d.days > recoveryDays) ? (d.health = 2) : d.health; return(d.health)})
+				.attr('days', (d) => (d.health == 0 ? (d.days = d.days + 0.1) : d.days))
+				.style('fill', (d) => (d.health == 0 ? 'red' : (d.health == 2 ? '#5DADE2' : '')));
+		
+			colorCode(infectQPoints);
+			svg2Text.text('Day ' + Math.round(totalDays));
+
+			if (dayFactor == 1) {
+				//rescaling the axes
+				xScale.domain([0, 10*Math.ceil(totalDays/10)]);
+
+				xAxisPlot = d3.axisBottom(xScale);
+
+				graphSVG.select('#xAxis').call(xAxisPlot);
+
+			};
+
+			//xScale.domain([0, Math.ceil(totalDays)])
+			casesQ = infectQPoints.filter((d) => d.health == 0).length;
+			
+			if (((totalDays % 1) < 0.001) | ((totalDays % 1) > 0.499)) {
+			//if ((totalDays % 0.5 < 0.001) | (totalDays % 0.5 > 0.499)) {
+				coOrdsQ.push([totalDays, casesQ]);
+			}
+			pathStringQ = rescaleAxis(coOrdsQ);
+			plotLineQ.attr('d', pathStringQ);
+
+			if (cases == 0) {
+				pathString = rescaleAxis(coOrds);
+				plotLine.attr('d', pathString);				
+			}
+		};	
+
+
+		function simulationStart() {
+			startButton.disabled = true;
+			stopButton.disabled = false;
+
+			animationSwitch = setInterval(displacement, dt);
+			animationSwitchQ = setInterval(displacementQ, dt);
+
+		}
+
+		//========== DISPLACEMENT FUNCTIONS END ======================
+
+
+		// ===== BUTTON FUNCTIONS/SLIDER FUNCTIONS ==========
+		//======== WHEN REFRESH BUTTON IS CLICKED ====================
+		function simulationRefresh() {
+			clearInterval(animationSwitch);
+			clearInterval(animationSwitchQ);
+			svg1.selectAll('*').remove();
+			svg2.selectAll('*').remove();
+			simulationReset();
+		}
+		//======== WHEN REFRESJ BUTTON IS CLICKED - END ==============
+
+		//======== STOP BUTTON ==================
+		function simulationStop() {
+			clearInterval(animationSwitch);
+			clearInterval(animationSwitchQ);
+			startButton.disabled = false;
+			stopButton.disabled = true;
+		}
+		//======== STOP BUTTON - END ============
+
+		//*************************************************************************8
+		//==================== FUNCTIONS FOR SLIDER RESET STARTS===================//
+		
+		function sliderReset() {
+			clear(animationSwitch);
+			clear(animationSwitchQ);
+			simulationReset();
+		};
+
+		function slider2Reset() {
+			recoveryDays = document.getElementById('recSlider').value;
+			qFraction = document.getElementById('qPopSlider').value;
+			d3.select('#recCount').text(Math.round(document.getElementById('recSlider').value));
+			d3.select('#qFraction').text(Math.round(document.getElementById('qPopSlider').value*100));
+
+			isolatedPopulation = Math.round(totalPopulation*qFraction);
+			
+			for (i = 0; i < isolatedPopulation; i++) {
+				if ((i != n) & (i != (n + 1))) {
+					infectQPoints[i].vx = 0;
+					infectQPoints[i].vy = 0;
+				}
+			}
+
+			for (i = isolatedPopulation; i < totalPopulation; i++) {
+				if ((infectQPoints[i].vx == 0) & (infectQPoints[i].vy == 0)) {
+					infectQPoints[i].vx = infectPoints[i].vx;
+					infectQPoints[i].vy = infectPoints[i].vy;
+				}
+			}
+		};
+		//=============== FUNCTIONS FOR SLIDER RESET ENDS ====================
+		//*************************************************************************8
+
+
+		/// ************** MAIN SCRIPT ************
+		//INTIAL CALL - SETUP OF CANVAS
+		simulationReset();
+	</script>
+
+</html>

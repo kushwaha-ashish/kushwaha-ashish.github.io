@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Product Landing Page</title>
+	<!--Font awesome-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	
+	<!--User Story #15: My product landing page should utilize CSS flexbox at least once.-->
+	<link rel="stylesheet" type="text/css" href="project013-css1.css">
+</head>
+
+<!--User Story #14: My product landing page should have at least one media query.-->
+<!-- This same part is also in CSS file, but MDN does not read the CSS for checks-->
+
+<style type="text/css">
+	@media screen and (max-width: 200 px) {
+		#logo {
+			height: 40px;
+			width: 20vw;
+			//background: rgba(0, 100, 0, 0.2);
+			padding: 20 20px;
+			display: flex;
+			align-items: center;
+		}
+	}
+@media screen and (min-width: 201 px) {
+	#logo {
+		height: 40px;
+		width: 60vw;
+		//background: rgba(0, 100, 0, 0.2);
+		padding: 20 20px;
+		display: flex;
+		align-items: center;
+		}
+	}
+</style>
+<body>
+	<!--User Story #1: My product landing page should have a header element with a corresponding id="header".-->
+	<header id="header">
+		<!--User Story #2: I can see an image within the header element with a corresponding id="header-img". A company logo would make a good image here.-->
+		<div id="logo">
+			<!--I have image file, but MDN expects an https file-->
+			<!--<img src="./original_trombones.png" id="header-img">-->
+			<img src="https://s3.amazonaws.com/freecodecamp/original_trombones.png" id="header-img">
+		</div>
+		<!--User Story #3: Within the #header element I can see a nav element with a corresponding id="nav-bar".-->
+		<!--User Story #13: The navbar should always be at the top of the viewport.-->
+		<nav id="nav-bar">
+			<!--User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link.-->
+			<ul>
+				<!--User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page.-->
+				<li><a class="nav-link" href="#pointers">Features</a></li>
+				<li><a class="nav-link" href="#video">How It Works</a></li>
+				<li><a class="nav-link" href="#prices">Pricing</a></li>
+			</ul>
+		</nav>
+	</header>				
+		
+	<main id="main">
+		<center>
+		<h2>Handcrafted, home-made masterpieces</h2>
+		
+		<!--User Story #7: My landing page has a form element with a corresponding id="form".-->
+		<form id="form" action="https://www.freecodecamp.com/email-submit">
+			<!--User Story #8: Within the form, there is an input field with id="email" where I can enter an email address.-->
+			<!--User Story #9: The #email input field should have placeholder text to let the user know what the field is for.-->
+			<!--User Story #10: The #email input field uses HTML5 validation to confirm that the entered text is an email address.-->
+			<input type="email" name="email" id="email" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br>
+			<!--User Story #11: Within the form, there is a submit input with a corresponding id="submit".-->
+			<!--User Story #12: When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit) that confirms the email address was entered and that it posted successfully.-->
+			<input type="submit" id="submit">
+		</form>
+
+		<section id="pointers">
+			<div class="pitch">
+				<div class="icon">
+					<i class="fa fa-3x fa-fire"></i>
+				</div>
+				<div class="pitch-text">
+					<h2>Premium Materials</h2>
+					<p>Our trombones use the shiniest brass which is sourced locally. This will increase the longevity of your purchase.</p>
+				</div>
+			</div>
+			<div class="pitch">
+				<div class="icon">
+					<i class="fa fa-3x fa-truck"></i>
+				</div>
+				<div class="pitch-text">
+					<h2>Fast Shipping</h2>
+					<p>We make sure you recieve your trombone as soon as we have finished making it. We also provide free returns if you are not satisfied.</p>
+				</div>
+			</div>
+			<div class="pitch">
+				<div class="icon">
+					<i class="fa fa-3x fa-battery-full" aria-hidden="true"></i>
+				</div>
+				<div class="pitch-text">
+					<h2>Quality Assurance</h2>
+					<p>For every purchase you make, we will ensure there are no damages or faults and we will check and test the pitch of your instrument.</p>
+				</div>
+			</div>
+		</section>
+		<!--User Story #6: I can watch an embedded product video with id="video".-->
+		<video id="video" width="320" height="240" controls>
+			<source src="./project013-vid1.mp4" type="video/mp4">
+			Your browser does not support the video tag.
+		</video>
+
+		<section id="prices">
+			<div class="price-cont">
+				<div class="top-strip">Tenor Trombone</div>
+				<div class="price-desc">
+					<h2>$600</h2>
+					<p>Lorem ipsum</p>
+					<p>Lorem ipsum</p>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum</p>
+					<button type="submit" id="submit">Select</button>
+				</div>
+			</div>
+			<div class="price-cont">
+				<div class="top-strip">Bass Trombone</div>
+				<div class="price-desc">
+					<h2>$900</h2>
+					<p>Lorem ipsum</p>
+					<p>Lorem ipsum</p>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum</p>
+					<button type="submit" id="submit">Select</button>
+				</div>
+			</div>
+			<div class="price-cont">
+				<div class="top-strip">Valve Trombone</div>
+				<div class="price-desc">
+					<h2>$1200</h2>
+					<p>Plays similar to a Trumpet</p>
+					<p>Great for Jazz Bands</p>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum</p>
+					<button type="submit" id="submit">Select</button>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div id="foot-menu">
+			<ul>
+				<li class="foot-li"><a href="#">Privacy</a></li>
+				<li class="foot-li"><a href="#">Terms</a></li>
+				<li class="foot-li"><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<div id="foot-note">
+			<p>Copyright 2016, Original Trombones</p>
+		</div>
+	</footer>
+	</center>
+</body>
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>

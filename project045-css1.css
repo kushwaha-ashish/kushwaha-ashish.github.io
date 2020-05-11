@@ -1,0 +1,32 @@
+body {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 10px;
+}
+
+#description {
+    margin-bottom: 20px;
+}
+
+.cell:hover {
+	stroke: black;
+	stroke-width: 2px;
+}
+
+.tooltip {
+    visibility: visible;
+    position: absolute;
+    width: 150px;					
+    height: auto;					
+    padding: 10px;				
+    font: 12px sans-serif;		
+	background: black;	
+	color: white;
+    border: 0px;
+	pointer-events: none;
+    text-align: center;
+    pointer-events: none;
+}
