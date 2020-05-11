@@ -61,10 +61,17 @@ a {
 }
 
 #proj-sec {
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 40px;
+  //height: 90vh;
+}
+
+.projSecFlexItem {
+  margin-left: 50px;
+  margin-right: 50px;
+  min-width: 300px;
 }
 
 .project-link {
@@ -75,6 +82,8 @@ a {
 }
 
 .project-image {
+  min-width: 300px;
+  min-height: 160px;
   width: 22vw;
   height: 12vw;
   background-color: #008080;
@@ -108,25 +117,34 @@ img {
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding-top: 20vh;
+  flex-wrap: wrap;
+}
+
+.contactGroupBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .contact-link {
-  width: 100px;
-  height: 100px;
+  margin: 25px;
 }
 
 .contact-div {
-  width: 100%;
-  height: 100%;
+  min-width: 100px;
+  min-height: 100px;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
   background-color: white;
   border: 3px solid green;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 footer {
